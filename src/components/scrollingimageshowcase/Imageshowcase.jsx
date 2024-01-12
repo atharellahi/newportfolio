@@ -34,11 +34,13 @@ const ImageShowCase = () => {
     const focusedimage = useRef()
 
     const handleMouseDown = (e) => {
+        if (focusedURL) return
         const clientX = e.touches ? e.touches[0].clientX : e.clientX;
         setDataMouseDownAt(clientX)
     }
 
     const handleMouseMove = (e) => {
+        if (focusedURL) return
         if (dataMouseDownAt === 0) return
         const clientX = e.touches ? e.touches[0].clientX : e.clientX;
         const mouseDelta = parseFloat(dataMouseDownAt) - clientX;
@@ -64,6 +66,7 @@ const ImageShowCase = () => {
     }
 
     const handleMouseUp = (e) => {
+        if (focusedURL) return
         setDataMouseDownAt(0)
         if (dataPrevPercentage !== dataPercentage) setAllowClick(false)
         if (dataPrevPercentage === dataPercentage) setAllowClick(true)
@@ -71,6 +74,7 @@ const ImageShowCase = () => {
     }
 
     const handlesectionclick = (url, name) => {
+        if (focusedURL) return
         if (!allowClick) return
         setFocusedURL(url)
         setFocusedSection(name)
@@ -83,11 +87,14 @@ const ImageShowCase = () => {
 
     }
 
-    const handlesectionexit = () => {
+    const handlesectionexit = (e) => {
         focusedimage.current.style.opacity = `0`
         focusedimage.current.style.width = `0px`
         focusedimage.current.style.height = `0px`
         focusedimage.current.classList.remove(styles.bluredbg)
+        setTimeout(() => {
+            setFocusedURL(null)
+        }, 500);
     }
 
     return (
