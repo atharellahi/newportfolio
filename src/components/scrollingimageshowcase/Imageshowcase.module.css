@@ -66,17 +66,11 @@
 }
 
 .bgimg {
-    opacity: 0;
-    position: absolute;
-    height: 0px;
-    width: 0px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
     object-fit: cover;
     object-position: center;
     transition: .5s;
-    z-index: 1;
 }
 
 .bluredbg {
@@ -85,13 +79,18 @@
 }
 
 .expandedsection {
+    opacity: 0;
     position: absolute;
+    height: 0px;
+    width: 0px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: .5s;
+    z-index: 1;
 }
 
 .expandedcontainer {
