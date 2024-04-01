@@ -3,6 +3,7 @@ import React from 'react'
 import { useRef, useState } from 'react'
 import styles from './Imageshowcase.module.css'
 import Projects from '../projects/projects'
+import Stack from '../stack/stack'
 
 const ImageShowCase = () => {
     const [focusedSection, setFocusedSection] = useState(null)
@@ -121,6 +122,7 @@ const ImageShowCase = () => {
                     <div className={styles.expandedcontainer}>
                         {focusedSection === 'Stack' ?
                             <>
+                                <Stack />
                             </>
                             :
                             null

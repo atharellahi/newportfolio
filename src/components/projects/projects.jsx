@@ -5,7 +5,6 @@ const Projects = () => {
 
     useEffect(() => {
         const projectnodes = [...document.querySelectorAll(`.${styles.project}`)]
-        console.log(projectnodes)
         projectnodes.map((node, index) => {
             setTimeout(() => {
                 node.style.opacity = '1'
